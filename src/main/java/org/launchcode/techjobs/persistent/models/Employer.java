@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 @Entity
 public class Employer extends AbstractEntity {
     @NotBlank(message ="Location can not be blank")
-    @Size(max=50)
+    @Size(max=50 )
     private String location;
 
 //  public accessors
