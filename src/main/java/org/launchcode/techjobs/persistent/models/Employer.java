@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Employer extends AbstractEntity {
     @NotBlank(message ="Location can not be blank")
-    @Size(max=50 )
+    @Size(max = 50)
     private String location;
 
     //Task 3
@@ -31,4 +31,8 @@ public class Employer extends AbstractEntity {
     }
 //  No arg constructor
     public Employer(){}
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
 }

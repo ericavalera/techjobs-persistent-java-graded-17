@@ -21,29 +21,27 @@ import java.util.Optional;
  */
 @Controller
 public class HomeController {
-
+//Task 3
     @Autowired
     EmployerRepository employerRepository;
-
     @Autowired
     SkillRepository skillRepository;
 
-    @Autowired
-    JobRepository jobRepository;
+
 
     @RequestMapping("/")
     public String index(Model model) {
-
         model.addAttribute("title", "MyJobs");
-
         return "index";
     }
 
     @GetMapping("add")
     public String displayAddJobForm(Model model) {
 	model.addAttribute("title", "Add Job");
-
         model.addAttribute(new Job());
+        //Task 3: added based on variables being passed into templates/add
+        model.addAttribute("employers", employerRepository.findAll());
+        model.addAttribute("skills", skillRepository.findAll());
         return "add";
     }
 
@@ -55,6 +53,7 @@ public class HomeController {
 	    model.addAttribute("title", "Add Job");
             return "add";
         }
+        //Task 3
 //        ** TODO add code inside this method to select the employer object that has been chosen
 //        to be affiliated with the new job. You will need to select the employer using request parameter
 //        to this method
