@@ -18,6 +18,7 @@ public class Employer extends AbstractEntity {
     //Task 3
     @OneToMany
     //this annotation needs a name parameter, usually through "id";
+    //Foreign key
     @JoinColumn(name = "employer_id")
     private List<Job> jobs = new ArrayList<>();
 
