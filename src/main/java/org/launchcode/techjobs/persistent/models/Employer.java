@@ -11,18 +11,15 @@ import java.util.List;
 
 @Entity
 public class Employer extends AbstractEntity {
+
     @NotBlank(message ="Location can not be blank")
     @Size(max = 50)
     private String location;
 
-    //Task 3
     @OneToMany
-    //this annotation needs a name parameter, usually through "id";
-    //Foreign key
     @JoinColumn(name = "employer_id")
     private List<Job> jobs = new ArrayList<>();
 
-//  public accessors
     public @NotBlank String getLocation() {
         return location;
     }
@@ -30,10 +27,17 @@ public class Employer extends AbstractEntity {
     public void setLocation(String location) {
         this.location = location;
     }
-//  No arg constructor
+
     public Employer(){}
 
+    public Employer(String location) {
+        this.location = location;
+    }
     public List<Job> getJobs() {
         return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
     }
 }

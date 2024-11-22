@@ -17,16 +17,18 @@ public class Skill extends AbstractEntity {
     @NotBlank(message = "Must not be blank.")
     @Size(max=250, message = "Must not be more than 250 characters long")
     private String description;
-    //public accessor
-    public String getDescription() {
-        return description;
-    }
+
+    public String getDescription() {return description;}
 
     public void setDescription(String description) {
         this.description = description;
     }
-    // no arg constructor
+
     public Skill(){}
+
+    public Skill(String description) {
+        this.description = description;
+    }
 
     public List<Job> getJobs() {
         return jobs;

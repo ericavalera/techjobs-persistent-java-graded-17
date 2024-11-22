@@ -4,35 +4,26 @@ package org.launchcode.techjobs.persistent.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-
 import java.util.List;
 
 
 @Entity
-//Task 3, extend and remove redundant code, refactor Employer employer
 public class Job extends AbstractEntity {
 
     @ManyToOne
     private Employer employer;
 
-    @ManyToMany //Many-to-Many relationship between Job & Skills
+    @ManyToMany
     private List<Skill> skills;
 
-    //no arg constructer required by JPA
     public Job() {
-
     }
-    // Initialize the id and value fields.
+
     public Job(Employer anEmployer, List<Skill> someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
     }
-
-
-
-    // Getters and setters.
-
 
     public Employer getEmployer() {
         return employer;
